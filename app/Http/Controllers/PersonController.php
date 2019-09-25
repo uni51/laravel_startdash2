@@ -57,7 +57,9 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
+    // DIするモデルと、フォームバリデーションの順序は、どちらでもOK
     public function update(UpdatePerson $request, Person $person)
+    // public function update(Person $person, UpdatePerson $request)
     {
         $isUpdated = false;
         if($request->input('name')){
