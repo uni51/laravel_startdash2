@@ -41,7 +41,7 @@ class PersonTest extends TestCase
     }    
 
     public function testPersonList()
-    {    
+    {
         $response = $this->json('GET','api/person');
         $response->assertStatus(200);
     }
