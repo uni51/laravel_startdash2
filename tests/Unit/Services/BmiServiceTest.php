@@ -28,7 +28,7 @@ class BmiServiceTest extends TestCase
         $method->setAccessible(true);
         // invokeメソッドで、実際にprivateメソッドを呼び出している
         $actual = $method->invoke($bmiService, $height, $weight);
-        $this->assertEquals($result, $actual,'', 0.2);
+        $this->assertEqualsWithDelta($result, $actual, 0.2);
     }
 
     /**
@@ -46,7 +46,7 @@ class BmiServiceTest extends TestCase
         $person->height = $height;
         $person->weight = $weight;
         $actual = BmiService::getBmi($person);
-        $this->assertEquals($result, $actual,'', 0.2);
+        $this->assertEqualsWithDelta($result, $actual, 0.2);
     }
 
     public function bmiDataProvider()
