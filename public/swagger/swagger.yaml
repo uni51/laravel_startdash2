@@ -1,0 +1,228 @@
+swagger: "2.0"
+info:
+  description: "bmi_service"
+  version: "1.0.0"
+  title: "BMI Service API"
+host: "localhost:8080"
+basePath: "/api"
+schemes:
+- "http"
+definitions:
+  Person:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      height:
+        type: "number"
+        format: "float"
+      weight:
+        type: "number"
+        format: "float"
+      BMI:
+        type: "number"
+        format: "float"
+    xml:
+      name: "Person"
+paths:
+  /person/:
+    get:
+      summary: "Person一覧"
+      description: "一覧です"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                format: "int64"
+                example: 1
+              name:
+                type: "string"
+                example: "John"
+              height:
+                type: "number"
+                format: "float"
+                example: 156.5
+              weight:
+                type: "number"
+                format: "float"
+                example: 56.5
+              BMI:
+                type: "number"
+                format: "float"
+                example: 22.5
+
+    post:
+      summary: "Person登録"
+      description: "登録します"
+      parameters:
+      - name: "name"
+        in: "formData"
+        description: "名前"
+        required: true
+        type: "string"
+      - name: "height"
+        in: "formData"
+        description: "身長(cm)"
+        required: true
+        type: "number"
+        format: "float"
+      - name: "weight"
+        in: "formData"
+        description: "体重(kg)"
+        required: true
+        type: "number"
+        format: "float"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                format: "int64"
+                example: 1
+              name:
+                type: "string"
+                example: "John"
+              height:
+                type: "number"
+                format: "float"
+                example: 156.5
+              weight:
+                type: "number"
+                format: "float"
+                example: 56.5
+              BMI:
+                type: "number"
+                format: "float"
+                example: 22.5
+
+  /person/{personId}:
+    get:
+      summary: "Person詳細取得"
+      description: "指定されたIdのPersonを返します"
+      parameters:
+      - name: "personId"
+        in: "path"
+        description: "PersonのID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                format: "int64"
+                example: 1
+              name:
+                type: "string"
+                example: "John"
+              height:
+                type: "number"
+                format: "float"
+                example: 156.5
+              weight:
+                type: "number"
+                format: "float"
+                example: 56.5
+              BMI:
+                type: "number"
+                format: "float"
+                example: 22.5
+
+    put:
+      summary: "Person更新"
+      description: "指定されたIdのPersonを更新します"
+      parameters:
+      - name: "personId"
+        in: "path"
+        description: "PersonのID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "formData"
+        description: "名前"
+        type: "string"
+      - name: "height"
+        in: "formData"
+        description: "身長(cm)"
+        type: "number"
+        format: "float"
+      - name: "weight"
+        in: "formData"
+        description: "体重(kg)"
+        type: "number"
+        format: "float"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                format: "int64"
+                example: 1
+              name:
+                type: "string"
+                example: "John"
+              height:
+                type: "number"
+                format: "float"
+                example: 156.5
+              weight:
+                type: "number"
+                format: "float"
+                example: 56.5
+              BMI:
+                type: "number"
+                format: "float"
+                example: 22.5
+    delete:
+      summary: "Person削除"
+      description: "指定されたIdのPersonを削除します"
+      parameters:
+      - name: "personId"
+        in: "path"
+        description: "PersonのID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                format: "int64"
+                example: 1
+              name:
+                type: "string"
+                example: "John"
+              height:
+                type: "number"
+                format: "float"
+                example: 156.5
+              weight:
+                type: "number"
+                format: "float"
+                example: 56.5
+              BMI:
+                type: "number"
+                format: "float"
+                example: 22.5
